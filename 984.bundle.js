@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkweather_app=self.webpackChunkweather_app||[]).push([[984],{984:(n,e,t)=>{async function c(n,e){const t=await n;console.log(t),console.log(e.children[0].innerHtml),function(n,e){e.children[0].textContent=`${n.location.name}, ${n.location.country}`,e.children[1].textContent=`${n.current.last_updated}`}(t,e.children[0])}t.r(e),t.d(e,{default:()=>c})}}]);
+//# sourceMappingURL=984.bundle.js.map
