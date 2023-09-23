@@ -13,8 +13,8 @@
         <input type="search" class="search-bar" placeholder="Search location" />
         <input type="submit" class="submit-search" value="a" />
       </form>
-      <button class="celsius-toggle"></button>
-      <button class="fahrenheit-toggle"></button>
+      <button class="celsius-toggle">°C, m/s</button>
+      <button class="fahrenheit-toggle">°F, mph</button>
     </header>
     <main>
       <section class="location">
@@ -22,24 +22,66 @@
         <p class="date-time"></p>
       </section>
       <section class="current-weather-section">
-        <div class="weather">
-          <!-- <img src="" alt="" /> -->
+        <div class="tempeture">
+          <img src="./assets/images/blank.gif" alt="weatherImg" />
           <div class="current-temp"></div>
-          <div class="current-temp-desc"></div>
+          <div class="current-temp-desc">
+            <p class="weather-condition"></p>
+            <p class="weather-feeling"></p>
+          </div>
         </div>
         <div class="details">
           <ol class="weather-details">
-            <li class="wind"></li>
-            <li class="humidity"></li>
-            <li class="uv-index"></li>
-            <li class="visibility"></li>
-            <li class="cloudiness"></li>
-            <li class="rain-chance"></li>
-            <li class="sunrise"></li>
-            <li class="sunset"></li>
-            <li class="first-quarter-moon"></li>
+            <li class="detail">
+              <p class="detail-title">Wind</p>
+              <p class="detail-data"></p>
+            </li>
+            <li class="detail">
+              <p class="detail-title">Humidity</p>
+              <p class="detail-data"></p>
+            </li>
+            <li class="detail">
+              <p class="detail-title">UV index</p>
+              <p class="detail-data"></p>
+            </li>
+            <li class="detail">
+              <p class="detail-title">Visibility</p>
+              <p class="detail-data"></p>
+            </li>
+            <li class="detail">
+              <p class="detail-title">Cloudiness</p>
+              <p class="detail-data"></p>
+            </li>
+            <li class="detail">
+              <p class="detail-title">Chance of rain</p>
+              <p class="detail-data"></p>
+            </li>
+            <li class="detail">
+              <p class="detail-title">Sunrise</p>
+              <p class="detail-data"></p>
+            </li>
+            <li class="detail">
+              <p class="detail-title">Sunset</p>
+              <p class="detail-data"></p>
+            </li>
+            <li class="detail">
+              <p class="detail-title">Waxing Gibbous</p>
+              <p class="detail-data"></p>
+            </li>
           </ol>
         </div>
+      </section>
+      <section class="weekly-forecast">
+        <h2 class="forecast-title">Weekly Forecast</h2>
+        <ol class="days-of-week">
+          <li class="day"></li>
+          <li class="day"></li>
+          <li class="day"></li>
+          <li class="day"></li>
+          <li class="day"></li>
+          <li class="day"></li>
+          <li class="day"></li>
+        </ol>
       </section>
     </main>
     <footer>Built by Yasen Yanev</footer>
