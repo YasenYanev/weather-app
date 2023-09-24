@@ -1,11 +1,17 @@
+import { parse, format } from 'date-fns';
 import htmlElementFactory from './html-elements-factory';
 
 function renderCurrentLocation(data, targetElement) {
   targetElement.appendChild(
     htmlElementFactory(`
       <section class="location">
-        <h1 class="location-name">${data.location.name}, ${data.location.country}</h1>
-        <p class="date-time">${data.current.last_updated}</p>
+        <h1 class="location-name">${data.location.name}, ${
+          data.location.country
+        }</h1>
+        <p class="date-time">${format(
+          parse(data.current.last_updated, 'yyyy-MM-dd HH:mm', new Date()),
+          'EEEE, MMMM dd, yyyy - HH:mm'
+        )}</p>
       </section>
   `)
   );
@@ -48,7 +54,7 @@ function renderCurrentWeatherDetails(data, targetElement, unit) {
     ['Chance of rain', forecast.day.daily_chance_of_rain + '%'],
     ['Sunrise', forecast.astro.sunrise],
     ['Sunset', forecast.astro.sunset],
-    ['Waxing Gibbous', forecast.astro.moon_phase],
+    ['Moon phase', forecast.astro.moon_phase],
   ];
   targetElement.appendChild(
     htmlElementFactory(`
@@ -93,11 +99,13 @@ function renderWeeklyForecast(data, targetElement, unit) {
                 unit === 'c'
                   ? (dayObjectFromData.day.maxwind_kph * 0.277777778).toFixed(1)
                   : dayObjectFromData.day.maxwind_mph;
-              console.log(dayObjectFromData);
               listElements.push(`            
             <li>
               <p class="day">
-                <span class="day-name">${dayObjectFromData.date}</span>
+                <span class="day-name">${format(
+                  parse(dayObjectFromData.date, 'yyyy-MM-dd', new Date()),
+                  'EEEE'
+                )}</span>
                 <span class="daily-temp">${avarageTemp}°${unit.toUpperCase()}</span>
                 <span class="daily-night-temp">${minTemp}°${unit.toUpperCase()}</span>
                 <span class="daily-wind-speed">${maxWind}</span>
