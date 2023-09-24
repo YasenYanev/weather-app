@@ -1,11 +1,9 @@
 export default async function fetchWeather(searchLocation, currentLocation) {
   let data;
   let chosenLocation;
-  if (searchLocation == '') {
-    chosenLocation = currentLocation;
-  } else if (searchLocation !== '') {
-    chosenLocation = searchLocation;
-  }
+  searchLocation == ''
+    ? (chosenLocation = currentLocation)
+    : (chosenLocation = searchLocation);
 
   try {
     data = await fetch(
