@@ -1,4 +1,5 @@
 import fetchWeather from './modules/fetch-location';
+import './assets/styles/general-styles.css';
 
 const searchForm = document.querySelector('form');
 const searchBar = document.querySelector('.search-bar');

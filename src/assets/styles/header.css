@@ -1,0 +1,51 @@
+header {
+  position: relative;
+  background-color: grey;
+}
+form {
+  width: 50%;
+  white-space: nowrap;
+}
+form > * {
+  border: none;
+  height: 2rem;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  box-sizing: border-box;
+}
+.logo,
+[data-toggle] {
+  position: absolute;
+}
+.search-bar {
+  border-radius: 0.5rem 0rem 0 0.5rem;
+  outline: none;
+  padding-left: 1rem;
+  width: 90%;
+  margin-right: -0.25rem;
+}
+.submit-search {
+  border-radius: 0 0.5rem 0.5rem 0;
+  cursor: pointer;
+  max-width: 3rem;
+  background-color: rgba(51, 51, 51, 255);
+  width: 10%;
+}
+
+[data-toggle] {
+  top: 0.55rem;
+  border: none;
+  height: 2rem;
+  border-radius: 1rem;
+  background-color: white;
+  cursor: pointer;
+}
+
+[data-toggle='c'] {
+  right: 4rem;
+}
+
+[data-toggle='f'] {
+  right: 0.4rem;
+}

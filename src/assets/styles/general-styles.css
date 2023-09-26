@@ -1,0 +1,31 @@
+@import 'reset.css';
+@import 'header.css';
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header,
+footer,
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header,
+footer {
+  min-height: 3.2rem;
+}
+
+main {
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+main > * {
+  width: 70%;
+}
