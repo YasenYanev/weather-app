@@ -7,7 +7,7 @@ export default async function fetchWeather(searchLocation, currentLocation) {
 
   try {
     data = await fetch(
-      `https://api.weatherapi.com/v1/forecast.json?key=86126fe4908948ad893172220231309&q=${chosenLocation}&days=9`,
+      `https://api.weatherapi.com/v1/forecast.json?key=86126fe4908948ad893172220231309&q=${chosenLocation}&days=3`,
       {
         mode: 'cors',
       }

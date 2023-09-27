@@ -1,18 +1,21 @@
 import { parse, format } from 'date-fns';
 import htmlElementFactory from './html-elements-factory';
 
+import '../assets/styles/main.css';
+
 function renderCurrentLocation(data, targetElement) {
   targetElement.appendChild(
     htmlElementFactory(`
-      <section class="location">
-        <h1 class="location-name">${data.location.name}, ${
+      <section class='location'>
+        <h1 class='location-name'>${data.location.name}, ${
           data.location.country
         }</h1>
-        <p class="date-time">${format(
+        <p class='date-time'>${format(
           parse(data.current.last_updated, 'yyyy-MM-dd HH:mm', new Date()),
           'EEEE, MMMM dd, yyyy - HH:mm'
         )}</p>
       </section>
+
   `)
   );
 }
@@ -25,14 +28,19 @@ function renderCurrentWeather(data, targetElement, unit) {
     unit === 'c' ? current.feelslike_c : current.feelslike_f;
   targetElement.appendChild(
     htmlElementFactory(`
-      <section class="current-weather">
-          <img src="${condition.icon}" alt="weatherImg" />
-          <div class="current-temp">${temperature}°${unit.toUpperCase()}</div>
-          <div class="current-temp-desc">
-            <p class="weather-condition">${condition.text}</p>
-            <p class="weather-feeling">Feels like ${feelsLikeTemp}°${unit.toUpperCase()}</p>
-          </div>
+    <div class='current-weather-wrapper'>
+      <section class='current-weather'>
+        <img src='${condition.icon}' class='weather-img' alt='weatherImg' />
+        <div class='current-temp-wrapper'>
+        <div>
+            <div class='current-temp'>${temperature}°${unit.toUpperCase()}</div>
+            <div class='current-temp-desc'>
+              <p class='weather-condition'>${condition.text}</p>
+              <p class='weather-feeling'>Feels like ${feelsLikeTemp}°${unit.toUpperCase()}</p>
+            </div>
+        </div>
       </section>
+    </div>
   `)
   );
 }
@@ -56,16 +64,16 @@ function renderCurrentWeatherDetails(data, targetElement, unit) {
     ['Sunset', forecast.astro.sunset],
     ['Moon phase', forecast.astro.moon_phase],
   ];
-  targetElement.appendChild(
+  targetElement.children[1].appendChild(
     htmlElementFactory(`
-      <section class="current-weather-details">
-          <ol class="weather-details">
+      <section class='current-weather-details'>
+          <ol class='weather-details'>
           ${detailsFromData
             .map(
               detail => `
             <li>
-              <p class="detail-title">${detail[0]}</p>
-              <p class="detail-data">${detail[1]}</p>
+              <p class='detail-title'>${detail[0]}</p>
+              <p class='detail-data'>${detail[1]}</p>
             </li>
           `
             )
@@ -77,7 +85,7 @@ function renderCurrentWeatherDetails(data, targetElement, unit) {
 }
 
 function renderWeeklyForecast(data, targetElement, unit) {
-  console.log(data);
+  // console.log(data);
   targetElement.appendChild(
     htmlElementFactory(`
       <section class="weekly-forecast">
@@ -85,8 +93,9 @@ function renderWeeklyForecast(data, targetElement, unit) {
         <ol class="days-of-week">
           ${(() => {
             let listElements = [];
-            for (let i = 1; i < 9; i++) {
+            for (let i = 1; i < data.forecast.forecastday.length; i++) {
               const dayObjectFromData = data.forecast.forecastday[i];
+              console.log(dayObjectFromData);
               const avarageTemp =
                 unit === 'c'
                   ? dayObjectFromData.day.avgtemp_c

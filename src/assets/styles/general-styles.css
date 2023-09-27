@@ -9,21 +9,16 @@ body {
 }
 
 header,
-footer,
-main {
+footer {
+  min-height: 3.2rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-header,
-footer {
-  min-height: 3.2rem;
-}
-
 main {
   flex-grow: 1;
-  flex-direction: column;
+  padding: 2rem 5rem;
 }
 
 main > * {
