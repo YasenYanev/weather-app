@@ -32,8 +32,9 @@ function renderCurrentWeather(data, targetElement, unit) {
       <section class='current-weather'>
         <img src='${condition.icon}' class='weather-img' alt='weatherImg' />
         <div class='current-temp-wrapper'>
-        <div>
-            <div class='current-temp'>${temperature}°${unit.toUpperCase()}</div>
+            <div class='current-temp'>${Math.floor(
+              temperature
+            )}°${unit.toUpperCase()}</div>
             <div class='current-temp-desc'>
               <p class='weather-condition'>${condition.text}</p>
               <p class='weather-feeling'>Feels like ${feelsLikeTemp}°${unit.toUpperCase()}</p>
@@ -59,10 +60,10 @@ function renderCurrentWeatherDetails(data, targetElement, unit) {
     ['UV index', current.uv],
     ['Visibility', visibility + 'km'],
     ['Cloudiness', current.cloud + '%'],
-    ['Chance of rain', forecast.day.daily_chance_of_rain + '%'],
+    ['Chance<br> of rain', forecast.day.daily_chance_of_rain + '%'],
     ['Sunrise', forecast.astro.sunrise],
     ['Sunset', forecast.astro.sunset],
-    ['Moon phase', forecast.astro.moon_phase],
+    ['Moon<br> phase', forecast.astro.moon_phase],
   ];
   targetElement.children[1].appendChild(
     htmlElementFactory(`
@@ -72,8 +73,8 @@ function renderCurrentWeatherDetails(data, targetElement, unit) {
             .map(
               detail => `
             <li>
-              <p class='detail-title'>${detail[0]}</p>
               <p class='detail-data'>${detail[1]}</p>
+              <p class='detail-title'>${detail[0]}</p>
             </li>
           `
             )
@@ -88,8 +89,8 @@ function renderWeeklyForecast(data, targetElement, unit) {
   // console.log(data);
   targetElement.appendChild(
     htmlElementFactory(`
-      <section class="weekly-forecast">
-        <h2 class="forecast-title">Weekly Forecast</h2>
+      <section class="next-days-forecast">
+        <h2 class="forecast-title">Next 2 days</h2>
         <ol class="days-of-week">
           ${(() => {
             let listElements = [];
@@ -115,8 +116,12 @@ function renderWeeklyForecast(data, targetElement, unit) {
                   parse(dayObjectFromData.date, 'yyyy-MM-dd', new Date()),
                   'EEEE'
                 )}</span>
-                <span class="daily-temp">${avarageTemp}°${unit.toUpperCase()}</span>
-                <span class="daily-night-temp">${minTemp}°${unit.toUpperCase()}</span>
+                <span class="daily-temp">${Math.floor(
+                  avarageTemp
+                )}°${unit.toUpperCase()}</span>
+                <span class="daily-night-temp">${Math.floor(
+                  minTemp
+                )}°${unit.toUpperCase()}</span>
                 <span class="daily-wind-speed">${maxWind}</span>
               </p>
             </li>`);
