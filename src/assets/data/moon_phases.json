@@ -1,0 +1,34 @@
+[
+  {
+    "moonPhase": "New Moon",
+    "icon": "wi-moon-new"
+  },
+  {
+    "moonPhase": "Waxing Crescent",
+    "icon": "wi-moon-waxing-crescent-2"
+  },
+  {
+    "moonPhase": "First Quarter",
+    "icon": "wi-moon-first-quarter"
+  },
+  {
+    "moonPhase": "Waxing Gibbous",
+    "icon": "wi-moon-waxing-gibbous-3"
+  },
+  {
+    "moonPhase": "Full Moon",
+    "icon": "wi-moon-full"
+  },
+  {
+    "moonPhase": "Waning Gibbous",
+    "icon": "wi-moon-waning-gibbous-3"
+  },
+  {
+    "moonPhase": "Last Quarter",
+    "icon": "wi-moon-alt-third-quarter"
+  },
+  {
+    "moonPhase": "Waning Crescent",
+    "icon": "wi-moon-waning-crescent-3"
+  }
+]

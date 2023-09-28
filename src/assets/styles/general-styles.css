@@ -6,6 +6,8 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  background-image: linear-gradient(to bottom, #87ceeb 5%, #1e90ff);
+  color: white;
 }
 
 header,
@@ -18,7 +20,7 @@ footer {
 
 main {
   flex-grow: 1;
-  padding: 2rem 5rem;
+  padding: 2vh 12vw;
 }
 
 main > * {

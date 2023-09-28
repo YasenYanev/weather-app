@@ -1,5 +1,7 @@
 import { parse, format } from 'date-fns';
 import htmlElementFactory from './html-elements-factory';
+import getWeatherIconName from './icon-name';
+import getMoonIconName from './moon-phase-name';
 
 import '../assets/styles/main.css';
 
@@ -26,11 +28,15 @@ function renderCurrentWeather(data, targetElement, unit) {
   const temperature = unit === 'c' ? current.temp_c : current.temp_f;
   const feelsLikeTemp =
     unit === 'c' ? current.feelslike_c : current.feelslike_f;
+  const currentTime = current.last_updated.split(' ')[1];
   targetElement.appendChild(
     htmlElementFactory(`
     <div class='current-weather-wrapper'>
       <section class='current-weather'>
-        <img src='${condition.icon}' class='weather-img' alt='weatherImg' />
+      <div class='weather-img-container'><i class='wi ${getWeatherIconName(
+        condition.text,
+        currentTime
+      )} condition-img-style'></i></div>
         <div class='current-temp-wrapper'>
             <div class='current-temp'>${Math.floor(
               temperature
@@ -63,7 +69,12 @@ function renderCurrentWeatherDetails(data, targetElement, unit) {
     ['Chance<br> of rain', forecast.day.daily_chance_of_rain + '%'],
     ['Sunrise', forecast.astro.sunrise],
     ['Sunset', forecast.astro.sunset],
-    ['Moon<br> phase', forecast.astro.moon_phase],
+    [
+      'Moon phase',
+      `<i
+        class='wi ${getMoonIconName(forecast.astro.moon_phase)} moon-style'
+      ></i>`,
+    ],
   ];
   targetElement.children[1].appendChild(
     htmlElementFactory(`
@@ -86,17 +97,15 @@ function renderCurrentWeatherDetails(data, targetElement, unit) {
 }
 
 function renderWeeklyForecast(data, targetElement, unit) {
-  // console.log(data);
   targetElement.appendChild(
     htmlElementFactory(`
-      <section class="next-days-forecast">
-        <h2 class="forecast-title">Next 2 days</h2>
-        <ol class="days-of-week">
+      <section class='next-days-forecast'>
+        <h2 class='forecast-title'>Next 2 days</h2>
+        <ol class='days-of-week'>
           ${(() => {
             let listElements = [];
             for (let i = 1; i < data.forecast.forecastday.length; i++) {
               const dayObjectFromData = data.forecast.forecastday[i];
-              console.log(dayObjectFromData);
               const avarageTemp =
                 unit === 'c'
                   ? dayObjectFromData.day.avgtemp_c
@@ -111,18 +120,18 @@ function renderWeeklyForecast(data, targetElement, unit) {
                   : dayObjectFromData.day.maxwind_mph;
               listElements.push(`            
             <li>
-              <p class="day">
-                <span class="day-name">${format(
+              <p class='day'>
+                <span class='day-name'>${format(
                   parse(dayObjectFromData.date, 'yyyy-MM-dd', new Date()),
                   'EEEE'
                 )}</span>
-                <span class="daily-temp">${Math.floor(
+                <span class='daily-temp'>${Math.floor(
                   avarageTemp
                 )}°${unit.toUpperCase()}</span>
-                <span class="daily-night-temp">${Math.floor(
+                <span class='daily-night-temp'>${Math.floor(
                   minTemp
                 )}°${unit.toUpperCase()}</span>
-                <span class="daily-wind-speed">${maxWind}</span>
+                <span class='daily-wind-speed'>${maxWind}</span>
               </p>
             </li>`);
             }

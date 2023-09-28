@@ -1,3 +1,5 @@
+@import 'weather-icons.min.css';
+
 main > * {
   width: 100%;
 }
@@ -29,10 +31,10 @@ main > * {
   flex-direction: column;
 }
 
-.weather-img {
-  width: 100%;
-  font-size: 100%;
-  font-weight: bold;
+.weather-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .current-temp {
@@ -66,4 +68,11 @@ main > * {
 
 .detail-title {
   font-size: 1vw;
+}
+
+.condition-img-style {
+  font-size: 11vw;
+}
+.moon-style {
+  font-size: 2.7vw;
 }
