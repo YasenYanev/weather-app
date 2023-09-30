@@ -97,6 +97,7 @@ function renderCurrentWeatherDetails(data, targetElement, unit) {
 }
 
 function renderWeeklyForecast(data, targetElement, unit) {
+  console.log(data);
   targetElement.appendChild(
     htmlElementFactory(`
       <section class='next-days-forecast'>
@@ -116,23 +117,36 @@ function renderWeeklyForecast(data, targetElement, unit) {
                   : dayObjectFromData.day.mintemp_f;
               const maxWind =
                 unit === 'c'
-                  ? (dayObjectFromData.day.maxwind_kph * 0.277777778).toFixed(1)
-                  : dayObjectFromData.day.maxwind_mph;
+                  ? (dayObjectFromData.day.maxwind_mph * 0.44704).toFixed(1) +
+                    'm/s'
+                  : dayObjectFromData.day.maxwind_mph + 'mph';
               listElements.push(`            
             <li>
-              <p class='day'>
-                <span class='day-name'>${format(
+              <div class='forecast-day-name'>
+                <p>${format(
                   parse(dayObjectFromData.date, 'yyyy-MM-dd', new Date()),
                   'EEEE'
-                )}</span>
-                <span class='daily-temp'>${Math.floor(
-                  avarageTemp
-                )}°${unit.toUpperCase()}</span>
-                <span class='daily-night-temp'>${Math.floor(
-                  minTemp
-                )}°${unit.toUpperCase()}</span>
-                <span class='daily-wind-speed'>${maxWind}</span>
-              </p>
+                )}</p>
+              </div>
+              <div class='forecast-day-details'>
+                <div> 
+                  <p class='daily-temp'>${Math.floor(
+                    avarageTemp
+                  )}°${unit.toUpperCase()}</p>
+                  <p>High</p>
+                </div>
+                <div> 
+                  <p class='daily-night-temp'>${Math.floor(
+                    minTemp
+                  )}°${unit.toUpperCase()}
+                  </p>
+                  <p>Low</p>
+                </div>
+                <div> 
+                  <p class='daily-wind-speed'>${maxWind}</p>
+                  <p>Wind</p>
+                </div>
+              </div>
             </li>`);
             }
             return listElements.join('');

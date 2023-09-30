@@ -6,7 +6,7 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background-image: linear-gradient(to bottom, #87ceeb 5%, #1e90ff);
+  background-image: linear-gradient(to bottom, #1e90ff 5%, #87ceeb);
   color: white;
 }
 
