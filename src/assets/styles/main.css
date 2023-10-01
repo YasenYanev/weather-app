@@ -1,13 +1,5 @@
 @import 'weather-icons.min.css';
 
-main > * {
-  width: 100%;
-}
-
-.location {
-  margin-bottom: 10px;
-}
-
 .location-name {
   font-size: 2.5rem;
   font-weight: bold;
@@ -22,6 +14,7 @@ main > * {
 .current-weather {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
 }
 .current-weather {
   position: relative;
@@ -31,7 +24,7 @@ main > * {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 100%;
+  left: 101.3%;
   width: 3px;
   background-color: white;
 }
@@ -73,13 +66,16 @@ main > * {
   flex-direction: column;
 }
 
-.detail-data {
+.detail-data,
+.forecast-day-detail {
   font-size: 2rem;
   margin-bottom: 5px;
 }
 
-.detail-title {
+.detail-title,
+.forecast-day-detail-title {
   font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .condition-img-style {
@@ -98,7 +94,7 @@ main > * {
 }
 .next-days-forecast li {
   /* background-image: linear-gradient(to bottom, #87ceeb 5%, #1e90ff); */
-  background-color: rgba(30, 144, 255, 0.5);
+  background-color: rgba(30, 144, 255, 0.4);
   height: 5rem;
   border-radius: 0.5rem;
   display: grid;

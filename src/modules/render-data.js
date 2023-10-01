@@ -130,21 +130,21 @@ function renderWeeklyForecast(data, targetElement, unit) {
               </div>
               <div class='forecast-day-details'>
                 <div> 
-                  <p class='daily-temp'>${Math.floor(
+                  <p class='forecast-day-detail'>${Math.floor(
                     avarageTemp
                   )}°${unit.toUpperCase()}</p>
-                  <p>High</p>
+                  <p class='forecast-day-detail-title'>High</p>
                 </div>
                 <div> 
-                  <p class='daily-night-temp'>${Math.floor(
+                  <p class='forecast-day-detail'>${Math.floor(
                     minTemp
                   )}°${unit.toUpperCase()}
                   </p>
-                  <p>Low</p>
+                  <p class='forecast-day-detail-title'>Low</p>
                 </div>
                 <div> 
-                  <p class='daily-wind-speed'>${maxWind}</p>
-                  <p>Wind</p>
+                  <p class='forecast-day-detail'>${maxWind}</p>
+                  <p class='forecast-day-detail-title'>Wind</p>
                 </div>
               </div>
             </li>`);

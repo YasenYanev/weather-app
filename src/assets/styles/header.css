@@ -33,16 +33,25 @@ form > * {
 }
 
 [data-toggle] {
-  top: 0.55rem;
-  border: none;
-  height: 2rem;
-  border-radius: 1rem;
-  background-color: white;
+  top: 4.5px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  background-color: rgb(26, 97, 168);
   cursor: pointer;
+  font-size: 14px;
+  padding: 4px 16px;
+  height: 40px;
+  border-radius: 20px;
+  border: 2px solid rgb(26, 97, 170);
+  color: white;
+}
+[data-toggle]:hover,
+[data-toggle].active {
+  border-color: white;
 }
 
 [data-toggle='c'] {
-  right: 4rem;
+  right: 6rem;
 }
 
 [data-toggle='f'] {

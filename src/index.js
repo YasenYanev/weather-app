@@ -27,6 +27,8 @@ searchForm.addEventListener('submit', async e => {
 
 changeUnitsButtons.forEach(btn => {
   btn.addEventListener('click', () => {
+    changeUnitsButtons.forEach(btn => (btn.className = ''));
+    btn.classList.add('active');
     if (currentLocation == '') {
       btn.dataset.toggle === 'c' ? (currentUnits = 'c') : (currentUnits = 'f');
     } else if (currentLocation !== '') {
