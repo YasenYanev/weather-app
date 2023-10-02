@@ -6,7 +6,7 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background-image: linear-gradient(to bottom, #1e90ff 35%, #87ceeb);
+  background-image: linear-gradient(to bottom, #1e90ff 30%, #66bddf);
   color: white;
   font-family:
     system-ui,
@@ -32,8 +32,33 @@ footer {
 
 main {
   flex-grow: 1;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
 }
-main > * {
-  width: 65rem;
-  margin: 2rem auto;
+
+/* Loading.io loading animation */
+.lds-dual-ring {
+  display: none;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: ' ';
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

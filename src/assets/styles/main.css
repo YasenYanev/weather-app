@@ -1,5 +1,10 @@
 @import 'weather-icons.min.css';
 
+main > * {
+  width: 70rem;
+  margin: 2rem auto;
+}
+
 .location-name {
   font-size: 2.5rem;
   font-weight: bold;
@@ -43,7 +48,7 @@
 }
 
 .current-temp {
-  font-size: 10rem;
+  font-size: 9rem;
 }
 
 .current-temp-desc {
@@ -79,7 +84,7 @@
 }
 
 .condition-img-style {
-  font-size: 11rem;
+  font-size: 8.5rem;
 }
 .moon-style {
   font-size: 2.7rem;
@@ -93,8 +98,7 @@
   text-align: center;
 }
 .next-days-forecast li {
-  /* background-image: linear-gradient(to bottom, #87ceeb 5%, #1e90ff); */
-  background-color: rgba(30, 144, 255, 0.4);
+  background-color: rgba(30, 144, 255, 0.6);
   height: 5rem;
   border-radius: 0.5rem;
   display: grid;
@@ -111,4 +115,19 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+/* Animations */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 550ms ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

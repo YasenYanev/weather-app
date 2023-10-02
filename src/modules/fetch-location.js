@@ -12,8 +12,12 @@ export default async function fetchWeather(searchLocation, currentLocation) {
         mode: 'cors',
       }
     );
+    if (!data.ok) {
+      throw new Error('Network response error');
+    }
     return data.json();
   } catch (err) {
-    throw new Error(err);
+    console.log(err);
+    return false;
   }
 }

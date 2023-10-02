@@ -8,13 +8,13 @@ import '../assets/styles/main.css';
 function renderCurrentLocation(data, targetElement) {
   targetElement.appendChild(
     htmlElementFactory(`
-      <section class='location'>
+      <section class='location fade-in'>
         <h1 class='location-name'>${data.location.name}, ${
           data.location.country
         }</h1>
         <p class='date-time'>${format(
           parse(data.current.last_updated, 'yyyy-MM-dd HH:mm', new Date()),
-          'EEEE, MMMM dd, yyyy - HH:mm'
+          'EEEE, MMMM dd, yyyy - h:mm bb'
         )}</p>
       </section>
 
@@ -31,7 +31,7 @@ function renderCurrentWeather(data, targetElement, unit) {
   const currentTime = current.last_updated.split(' ')[1];
   targetElement.appendChild(
     htmlElementFactory(`
-    <div class='current-weather-wrapper'>
+    <div class='current-weather-wrapper fade-in'>
       <section class='current-weather'>
       <div class='weather-img-container'><i class='wi ${getWeatherIconName(
         condition.text,
@@ -78,7 +78,7 @@ function renderCurrentWeatherDetails(data, targetElement, unit) {
   ];
   targetElement.children[1].appendChild(
     htmlElementFactory(`
-      <section class='current-weather-details'>
+      <section class='current-weather-details fade-in'>
           <ol class='weather-details'>
           ${detailsFromData
             .map(
@@ -97,10 +97,9 @@ function renderCurrentWeatherDetails(data, targetElement, unit) {
 }
 
 function renderWeeklyForecast(data, targetElement, unit) {
-  console.log(data);
   targetElement.appendChild(
     htmlElementFactory(`
-      <section class='next-days-forecast'>
+      <section class='next-days-forecast fade-in'>
         <h2 class='forecast-title'>Next 2 days</h2>
         <ol class='days-of-week'>
           ${(() => {
@@ -157,9 +156,8 @@ function renderWeeklyForecast(data, targetElement, unit) {
   );
 }
 
-export default async function renderWeather(fetchFn, unit, targetElement) {
+export default async function renderWeather(data, unit, targetElement) {
   targetElement.innerHTML = '';
-  const data = await fetchFn;
   renderCurrentLocation(data, targetElement);
   renderCurrentWeather(data, targetElement, unit);
   renderCurrentWeatherDetails(data, targetElement, unit);

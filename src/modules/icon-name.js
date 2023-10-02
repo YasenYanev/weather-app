@@ -5,8 +5,6 @@ export default (weatherCondition, time) => {
   const weatherIconPair = weatherConditions.find(
     obj => obj.condition === weatherCondition
   );
-  console.log(weatherCondition);
-  console.log(weatherIconPair);
   return time > '06:00' && time < '20:00'
     ? weatherIconPair.dayIcon
     : weatherIconPair.nightIcon;
