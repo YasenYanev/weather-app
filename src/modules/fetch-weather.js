@@ -1,3 +1,5 @@
+import renderError from './render-error';
+
 export default async function fetchWeather(searchLocation, currentLocation) {
   let data;
   let chosenLocation;
@@ -18,6 +20,6 @@ export default async function fetchWeather(searchLocation, currentLocation) {
     return data.json();
   } catch (err) {
     console.log(err);
-    return false;
+    return 'error';
   }
 }

@@ -32,7 +32,16 @@ footer {
 
 main {
   flex-grow: 1;
-  display: inline-block;
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-container {
+  height: 2rem;
+  display: none;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #ff0033;
   justify-content: center;
   align-items: center;
 }

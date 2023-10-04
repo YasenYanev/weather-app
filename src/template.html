@@ -13,10 +13,13 @@
         <input type="search" class="search-bar" placeholder="Search location" />
         <input type="submit" class="submit-search" value="&#128269" />
       </form>
-      <button data-toggle="c">°C, m/s</button>
+      <button class="active" data-toggle="c">°C, m/s</button>
       <button data-toggle="f">°F, mph</button>
     </header>
     <main>
+      <div class="error-container">
+        <p class="error-content">Error</p>
+      </div>
       <div class="main-content-wrapper"></div>
       <div class="lds-dual-ring"></div>
     </main>

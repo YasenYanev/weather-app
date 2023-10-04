@@ -1,6 +1,6 @@
 @import 'weather-icons.min.css';
 
-main > * {
+.main-content-wrapper {
   width: 70rem;
   margin: 2rem auto;
 }
