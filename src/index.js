@@ -14,11 +14,6 @@ let currentUnits = 'c';
 let renderWeather;
 
 const handleWeatherUpdate = async () => {
-  if (currentLocation === '') {
-    renderError('Search bar empty');
-    return;
-  }
-
   errorContainer.style.display = 'none';
   isLoading();
 
@@ -42,6 +37,10 @@ const handleWeatherUpdate = async () => {
 
 searchForm.addEventListener('submit', async e => {
   e.preventDefault();
+  if (searchBar.value === '') {
+    renderError('Search bar empty');
+    return;
+  }
   currentLocation = searchBar.value;
   handleWeatherUpdate();
   searchForm.reset();

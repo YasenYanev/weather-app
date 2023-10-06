@@ -11,7 +11,6 @@ function isOdd(num) {
 export default () => {
   callCount++;
 
-  console.log(callCount);
   if (isOdd(callCount)) {
     mainContentWrapper.style.display = 'none';
     errorContainer.style.display = 'none';
