@@ -8,7 +8,7 @@ let callCount = 0;
 function isOdd(num) {
   return num % 2 === 1;
 }
-export default () => {
+export default function renderisLoading() {
   callCount++;
 
   if (isOdd(callCount)) {
@@ -21,4 +21,4 @@ export default () => {
     mainEl.style.display = 'block';
     loadingAnimation.style.display = 'none';
   }
-};
+}

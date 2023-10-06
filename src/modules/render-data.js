@@ -1,7 +1,7 @@
 import { parse, format } from 'date-fns';
 import htmlElementFactory from './html-elements-factory';
 import getWeatherIconName from './icon-name';
-import getMoonIconName from './moon-phase-name';
+import getMoonIconName from './moon-phase-icon';
 
 import '../assets/styles/main.css';
 

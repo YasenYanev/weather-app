@@ -1,6 +1,6 @@
 import fetchWeather from './modules/fetch-weather.js';
 import isLoading from './modules/render-loading-animation';
-import renderError from './modules/render-error';
+import handleError from './modules/handle-error';
 
 import './assets/styles/general-styles.css';
 
@@ -19,7 +19,7 @@ const handleWeatherUpdate = async () => {
 
   try {
     const data = await fetchWeather(searchBar.value, currentLocation);
-    if (data === 'error') throw new Error();
+    if (data === 'error') throw new Error('Error Fetching Data');
     renderWeather === undefined
       ? (renderWeather = (await import('./modules/render-data')).default)(
           data,
@@ -29,7 +29,7 @@ const handleWeatherUpdate = async () => {
       : renderWeather(data, currentUnits, mainContentWrapper);
   } catch (error) {
     isLoading();
-    renderError('Unable to retrieve weather information at the moment.');
+    handleError(error.message);
     return;
   }
   isLoading();
@@ -37,8 +37,8 @@ const handleWeatherUpdate = async () => {
 
 searchForm.addEventListener('submit', async e => {
   e.preventDefault();
-  if (searchBar.value === '') {
-    renderError('Search bar empty');
+  if (handleError(searchBar.value) === true) {
+    searchBar.value = '';
     return;
   }
   currentLocation = searchBar.value;

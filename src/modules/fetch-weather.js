@@ -1,5 +1,3 @@
-import renderError from './render-error';
-
 const API_KEY = '86126fe4908948ad893172220231309';
 
 export default async function fetchWeather(searchLocation, currentLocation) {
