@@ -4,7 +4,7 @@
 
 Weather app created with HTML, CSS and JS.
 
-[Live Demo]()
+[Live Demo](https://yasenyanev.github.io/weather-app/)
 
 ![screenshot](PreviewImage.png)
 
