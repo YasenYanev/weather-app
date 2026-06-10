@@ -1,4 +1,4 @@
-const API_KEY = '86126fe4908948ad893172220231309';
+const API_KEY = 'YOUR_API_KEY_HERE';
 
 export default async function fetchWeather(searchLocation, currentLocation) {
   let data;
